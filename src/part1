@@ -1,0 +1,19 @@
+1. create database jdbc;
+2.
+create table laptop(
+    id integer primary key not null auto_increment,
+    make varchar(50) not null,
+    model varchar(50) not null,
+    year integer not null,
+    color varchar (50),
+    cost integer
+    );
+
+3.
+insert into laptop(make, model, year, color, cost)
+values
+('Asus', 'zephyrusg14', 2020, 'silver', 1550),
+('Asus', 'zephyrusg15', 2021, 'black', 1850),
+('Apple', 'macbookpro', 2020, 'silver', 2000),
+('Razer', 'blade15', 2022, 'green', 2000),
+('MSI', 'katana', 2021, 'black',2500);
