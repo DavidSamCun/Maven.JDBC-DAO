@@ -1,11 +1,13 @@
-import com.mysql.jdbc.Driver;
+import com.mysql.cj.jdbc.Driver;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.*;
 
 public class ConnectionFactory {
-    public static final String URL = "jdbc:mysql://localhost:3306/jdbc";
+    public static final String URL = "jdbc:mysql://localhost:3306/jdbc?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+
     public static final String User = "master";
     public static final String Pass = "admin";
 
