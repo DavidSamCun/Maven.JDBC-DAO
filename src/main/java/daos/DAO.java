@@ -14,17 +14,19 @@ public abstract class DAO<T> {
 
 
     public T findById(int id) throws SQLException {
-        Connection connection = connectionFactory.getConnection();
-        try {
-            Statement stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery("Select * From " + db +" Where id = " + id);
-
-        if(rs.next()){
-            T output = new T();
-
-        }
-        }
-
+//        Connection connection = connectionFactory.getConnection();
+//        try {
+//            Statement stmt = connection.createStatement();
+//            ResultSet rs = stmt.executeQuery("Select * From " + db +" Where id = " + id);
+//
+//        if(rs.next()){
+//
+//        }
+//        }
+//        catch (SQLException ex){
+//            ex.printStackTrace();
+//        }
+//
 
       return null;
     }
