@@ -2,10 +2,7 @@ package daos;
 
 import models.Laptop;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -57,11 +54,25 @@ public class LaptopDao_WithInterface implements DAO_Interface {
         return null;
     }
 
-    public Object update(Object dto) {
+
+    public Laptop update(Laptop dto) {
+
+        Connection connection = connectionFactory.getConnection();
+        try {
+            PreparedStatement ps = connection.prepareStatement("Update laptop SET make=?, model=?, color=?, year=?, price=?");
+            ps.setString(1, dto.getMake());
+            ps.setString(2, dto.getModel());
+            ps.setString(3, dto.getColor());
+            ps.setInt(4, dto.getYear());
+            ps.setInt(5,dto.getPrice());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
         return null;
     }
 
-    public Object create(Object dto) {
+    public Laptop create(Laptop dto) {
         return null;
     }
 
