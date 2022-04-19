@@ -59,24 +59,47 @@ public class LaptopDao_WithInterface implements DAO_Interface {
 
         Connection connection = connectionFactory.getConnection();
         try {
-            PreparedStatement ps = connection.prepareStatement("Update laptop SET make=?, model=?, color=?, year=?, price=?");
+            PreparedStatement ps = connection.prepareStatement("Update laptop SET make=?, model=?, color=?, year=?, cost=?");
             ps.setString(1, dto.getMake());
             ps.setString(2, dto.getModel());
             ps.setString(3, dto.getColor());
             ps.setInt(4, dto.getYear());
-            ps.setInt(5,dto.getPrice());
+            ps.setInt(5,dto.getCost());
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
 
         return null;
     }
 
     public Laptop create(Laptop dto) {
+        Connection connection = connectionFactory.getConnection();
+
+        try {
+            PreparedStatement ps = connection.prepareStatement("Insert Into " + table + " Values (NULL, ?, ?, ?, ?, ?)");
+            ps.setString(1, dto.getMake());
+            ps.setString(2, dto.getModel());
+            ps.setInt(3, dto.getYear());
+            ps.setString(4, dto.getColor());
+            ps.setInt(5,dto.getCost());
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Failed");
+        }
         return null;
     }
 
     public void delete(int id) {
+        Connection connection = connectionFactory.getConnection();
+        try {
+            Statement stmt = connection.createStatement();
+            int i = stmt.executeUpdate("Delete From " + table + " Where id = " + id);
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Failed to delete");
+        }
 
     }
 
@@ -88,7 +111,7 @@ public class LaptopDao_WithInterface implements DAO_Interface {
         laptop.setModel(rs.getString("model"));
         laptop.setColor(rs.getString("color"));
         laptop.setYear(rs.getInt("year"));
-        laptop.setPrice(rs.getInt("price"));
+        laptop.setCost(rs.getInt("cost"));
 
         return laptop;
     }

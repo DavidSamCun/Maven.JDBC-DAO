@@ -7,20 +7,20 @@ public class Laptop {
     private String model;
     private Integer year;
     private String color;
-    private Integer price;
+    private Integer cost;
 
     public Laptop(){}
     public Laptop(Integer id){
         this.id = id;
     }
 
-    public Laptop(Integer id, String make, String model, Integer year, String color, Integer price) {
+    public Laptop(Integer id, String make, String model, Integer year, String color, Integer cost) {
         this.id = id;
         this.make = make;
         this.model = model;
         this.year = year;
         this.color = color;
-        this.price = price;
+        this.cost = cost;
     }
 
     public Integer getId() {
@@ -63,11 +63,11 @@ public class Laptop {
         this.color = color;
     }
 
-    public Integer getPrice() {
-        return price;
+    public Integer getCost() {
+        return cost;
     }
 
-    public void setPrice(Integer price) {
-        this.price = price;
+    public void setCost(Integer cost) {
+        this.cost = cost;
     }
 }
