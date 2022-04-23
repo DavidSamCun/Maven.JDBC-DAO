@@ -19,7 +19,7 @@ public class RunnerClass {
         postTest.setModel("Predetor");
         postTest.setYear(2018);
         postTest.setColor("Black");
-        postTest.setCost(820);
+        postTest.setCost(2200);
 
         test.create(postTest);
 
